@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mission: Forgive Me Dhana ❤️ | BGMI & FRIENDS Special</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Global Canvas for Background Particles -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Top Navigation Header -->
+  <header class="top-nav">
+    <div class="nav-brand">
+      <span class="pulse-dot"></span>
+      <span class="brand-text">MISSION: FORGIVE ME DHANA 💕</span>
+    </div>
+    
+    <!-- Page Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="nav-btn active" data-page="page-bgmi">
+        <span class="tab-icon">🎮</span>
+        <span class="tab-text">PAGE 1: BGMI LOBBY</span>
+      </button>
+      <button class="nav-btn" data-page="page-friends">
+        <span class="tab-icon">☕</span>
+        <span class="tab-text">PAGE 2: CENTRAL PERK</span>
+      </button>
+      <button class="nav-btn" data-page="page-bistro">
+        <span class="tab-icon">🍗</span>
+        <span class="tab-text">PAGE 3: CHICKEN BISTRO</span>
+      </button>
+    </nav>
+
+    <!-- Audio & Sound Controls -->
+    <div class="header-actions">
+      <button id="soundToggle" class="sound-btn" title="Toggle Sound SFX & Music">
+        <span id="soundIcon">🔊</span> <span class="sound-label">AUDIO: ON</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Multi-Page Container -->
+  <main class="pages-wrapper">
+
+    <!-- ========================================== -->
+    <!-- PAGE 1: BGMI / PUBG THEME (REVIVE & LOOT) -->
+    <!-- ========================================== -->
+    <section id="page-bgmi" class="page-section active">
+      <!-- Tactical Game HUD Header -->
+      <div class="hud-bar">
+        <div class="squad-info">
+          <div class="player-card captain">
+            <div class="avatar-box">👑</div>
+            <div class="player-details">
+              <span class="player-name">DHANA <small>(Squad Leader)</small></span>
+              <div class="hp-bar-wrap">
+                <div class="hp-bar-fill captain-hp" style="width: 100%;"></div>
+                <span class="hp-text">HP: 100/100 (Level 100 Pro)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="vs-badge">VS</div>
+
+          <div class="player-card teammate">
+            <div class="avatar-box teammate-avatar">💔</div>
+            <div class="player-details">
+              <span class="player-name">TANUSHREE <small>(Teammate)</small></span>
+              <div class="hp-bar-wrap">
+                <div class="hp-bar-fill teammate-hp" id="teammateHpBar" style="width: 15%;"></div>
+                <span class="hp-text" id="teammateHpText">HP: 15% (KNOCKED DOWN!)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="zone-info">
+          <span class="zone-title">⭕ SAFE ZONE</span>
+          <span class="zone-desc">Inside Your Heart</span>
+        </div>
+      </div>
+
+      <!-- Hero Banner & Message -->
+      <div class="bgmi-hero">
+        <div class="hero-badge">ALERT: TEAMMATE KNOCKED OUT! 🚨</div>
+        <h1 class="hero-title">I MADE A MISTAKE, SQUAD LEAD! 🥺</h1>
+        <p class="hero-subtitle">
+          "I am so, so sorry Dhana! Playing life without your smile is like landing in Pochinki with 0 armor and 0 guns. Please revive me!"
+        </p>
+      </div>
+
+      <!-- Revive Mechanic Section -->
+      <div class="revive-container">
+        <div class="revive-box">
+          <div class="revive-ring" id="reviveRing">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="45" class="ring-bg"></circle>
+              <circle cx="50" cy="50" r="45" class="ring-progress" id="ringProgress"></circle>
+            </svg>
+            <button id="reviveBtn" class="revive-button">
+              <span class="revive-icon">➕</span>
+              <span class="revive-btn-text">HOLD TO REVIVE ME</span>
+              <span class="revive-sub">Keep pressed to patch my heart!</span>
+            </button>
+          </div>
+          <div id="reviveStatus" class="revive-status-text">Hold button down to revive 💖</div>
+        </div>
+      </div>
+
+      <!-- Live BGMI Kill Feed / Love Feed Ticker -->
+      <div class="killfeed-wrapper">
+        <div class="killfeed-header">⚡ BATTLEGROUND LIVE LOVELOG:</div>
+        <div class="killfeed-ticker" id="killfeedTicker">
+          <div class="feed-item"><span>Tanushree</span> 💘 <span>Dhana</span> (Knocked out by cuteness & regret)</div>
+          <div class="feed-item"><span>Dhana 👑</span> 🎯 <span>Tanushree</span> (Eliminated bad mood with 1 hug)</div>
+          <div class="feed-item"><span>Love Squad</span> 💥 <span>Anger</span> (Squad wiped out! 100% Victory)</div>
+        </div>
+      </div>
+
+      <!-- Special Supply Airdrop Care Package -->
+      <div class="airdrop-section">
+        <h2 class="section-title">🎁 SPECIAL LEVEL 3 AIRDROP CARE PACKAGE</h2>
+        <p class="section-desc">Tap the Airdrop Crate below to open exclusive tactical loot for Dhana!</p>
+        
+        <div class="airdrop-stage">
+          <div class="airdrop-crate-card" id="airdropCrate">
+            <img src="./assets/airdrop.png" alt="BGMI Romantic Airdrop Crate" class="airdrop-img">
+            <div class="airdrop-flare-glow"></div>
+            <div class="airdrop-prompt">✨ CLICK TO OPEN AIRDROP ✨</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Next Page CTA -->
+      <div class="page-footer-nav">
+        <button class="btn-next-page" data-next="page-friends">
+          Go To Page 2: Central Perk FRIENDS Special ☕ ➡️
+        </button>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- PAGE 2: FRIENDS SITCOM THEME (ROSS & RACHEL)-->
+    <!-- ========================================== -->
+    <section id="page-friends" class="page-section">
+      <!-- Central Perk Header Banner -->
+      <div class="friends-hero">
+        <div class="friends-logo-wrap">
+          <h1 class="friends-logo">F·R·I·E·N·D·S</h1>
+          <div class="friends-tagline">"THE ONE WHERE TANUSHREE SAYS SORRY TO DHANA"</div>
+        </div>
+
+        <div class="central-perk-frame">
+          <img src="./assets/friends_perk.png" alt="Central Perk Orange Sofa" class="perk-img">
+          <div class="frame-overlay-neon">YOU ARE MY LOBSTER 🦞</div>
+        </div>
+      </div>
+
+      <!-- Ross & Rachel Story & Apology Card -->
+      <div class="lobster-card-wrap">
+        <div class="lobster-card">
+          <div class="lobster-badge">🦞 "IT'S A KNOWN FACT THAT LOBSTERS FALL IN LOVE AND MATE FOR LIFE"</div>
+          <h2 class="lobster-title">You Are My Lobster, Dhana! ❤️</h2>
+          <p class="lobster-text">
+            "Even when Ross and Rachel had their misunderstandings (and NO, we were NOT on a break! 😜), they always found their way back to each other. You are my safe place, my best friend, and my lobster forever. I'm so sorry for being goofy or upsetting you. Can I hold your claw again?"
+          </p>
+        </div>
+      </div>
+
+      <!-- FRIENDS Character Quotes Grid -->
+      <div class="friends-characters-section">
+        <h2 class="section-title text-gold">📺 WHAT THE GANG HAS TO SAY ABOUT US:</h2>
+        
+        <div class="character-grid">
+          <!-- Ross -->
+          <div class="char-card">
+            <div class="char-avatar">🦕</div>
+            <div class="char-name">ROSS GELLER</div>
+            <div class="char-quote">
+              "It's always been you, Dhana. Science proves that Tanushree loves you 1000x more than dinosaurs!"
+            </div>
+          </div>
+
+          <!-- Rachel -->
+          <div class="char-card">
+            <div class="char-avatar">🛍️</div>
+            <div class="char-name">RACHEL GREEN</div>
+            <div class="char-quote">
+              "He's her lobster! Look at them, they belong together forever. Forgive her already!"
+            </div>
+          </div>
+
+          <!-- Chandler -->
+          <div class="char-card">
+            <div class="char-avatar">👔</div>
+            <div class="char-name">CHANDLER BING</div>
+            <div class="char-quote">
+              "Could she BE any more sorry? You two are literally the cutest couple in the apartment!"
+            </div>
+          </div>
+
+          <!-- Monica -->
+          <div class="char-card">
+            <div class="char-avatar">🍳</div>
+            <div class="char-name">MONICA GELLER</div>
+            <div class="char-quote">
+              "I have organized 100 reasons why Dhana is the best squad leader and boyfriend in existence!"
+            </div>
+          </div>
+
+          <!-- Joey -->
+          <div class="char-card">
+            <div class="char-avatar">🍕</div>
+            <div class="char-name">JOEY TRIBBIANI</div>
+            <div class="char-quote">
+              "How YOU doin', Dhana? Joey doesn't share food... BUT Tanushree bought you delicious chicken!"
+            </div>
+          </div>
+
+          <!-- Phoebe -->
+          <div class="char-card">
+            <div class="char-avatar">🎸</div>
+            <div class="char-name">PHOEBE BUFFAY</div>
+            <div class="char-quote">
+              "🎵 Smelly cat, smelly cat, what are they feeding you? Only love and chicken for Dhana! 🎵"
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive "Were We On A Break?" Quiz Widget -->
+      <div class="break-quiz-box">
+        <h3 class="quiz-title">❓ QUICK QUIZ: ARE WE ON A BREAK?</h3>
+        <p class="quiz-desc">Select the correct answer to unlock Page 3 Chicken Bistro!</p>
+        <div class="quiz-options">
+          <button class="quiz-btn wrong" id="quizWrong">"Yes, we were on a break!" ❌</button>
+          <button class="quiz-btn right" id="quizRight">"NO! We are together forever & ever! ❤️"</button>
+        </div>
+        <div id="quizFeedback" class="quiz-feedback"></div>
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="page-footer-nav flex-between">
+        <button class="btn-prev-page" data-prev="page-bgmi">
+          ⬅️ Back to Page 1: BGMI Lobby
+        </button>
+        <button class="btn-next-page" data-next="page-bistro">
+          Go To Page 3: Chicken Bistro & Dinner Date 🍗 ➡️
+        </button>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- PAGE 3: CHICKEN RESTAURANT & DINNER DATE  -->
+    <!-- ========================================== -->
+    <section id="page-bistro" class="page-section">
+      <!-- Restaurant Header -->
+      <div class="bistro-hero">
+        <div class="bistro-badge">🍷 WINNER WINNER ROMANTIC DINNER</div>
+        <h1 class="bistro-title">DHANA'S SPECIAL CHICKEN BISTRO 🍗</h1>
+        <p class="bistro-subtitle">
+          "Because a true BGMI champion and my favorite human deserves the tastiest food and all my love!"
+        </p>
+      </div>
+
+      <!-- Restaurant Showcase Image -->
+      <div class="bistro-banner-wrap">
+        <img src="./assets/bistro.png" alt="Winner Winner Romantic Dinner Table" class="bistro-img">
+      </div>
+
+      <!-- Interactive Restaurant Menu Card -->
+      <div class="menu-container">
+        <div class="menu-header">
+          <h2>📜 THE "I'M SORRY & I LOVE YOU" SPECIAL MENU</h2>
+          <p>Click on your favorite chicken items to add them to our Romantic Dinner Date!</p>
+        </div>
+
+        <div class="menu-grid">
+          <!-- Item 1 -->
+          <div class="menu-card" data-id="1" data-name="Level 3 Apology Crispy Chicken Bucket" data-price="100 Hugs">
+            <div class="menu-icon">🍗</div>
+            <div class="menu-details">
+              <h3 class="menu-item-name">Level 3 Apology Crispy Chicken Bucket</h3>
+              <p class="menu-item-desc">10x Extra crunchy fried chicken cooked with love, guaranteed to bring 100% HP & joy!</p>
+              <div class="menu-price-row">
+                <span class="menu-price">PRICE: 💖 Unlimited Hugs</span>
+                <button class="btn-add-item">ADD TO DATE ➕</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="menu-card" data-id="2" data-name="Ross & Rachel Butter Chicken & Naan" data-price="Infinite Kisses">
+            <div class="menu-icon">🍲</div>
+            <div class="menu-details">
+              <h3 class="menu-item-name">Ross & Rachel Butter Chicken & Naan</h3>
+              <p class="menu-item-desc">Rich, creamy butter chicken paired with hot garlic butter naan. 0% drama, 100% comfort food!</p>
+              <div class="menu-price-row">
+                <span class="menu-price">PRICE: 💋 Infinite Kisses</span>
+                <button class="btn-add-item">ADD TO DATE ➕</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="menu-card" data-id="3" data-name="Squad Winner Peri-Peri Fries & Wings" data-price="1 Big Smile">
+            <div class="menu-icon">🍟</div>
+            <div class="menu-details">
+              <h3 class="menu-item-name">Squad Winner Peri-Peri Fries & Wings</h3>
+              <p class="menu-item-desc">A little spicy like our playful banter, served with special secret garlic dip.</p>
+              <div class="menu-price-row">
+                <span class="menu-price">PRICE: 😊 Your Handsome Smile</span>
+                <button class="btn-add-item">ADD TO DATE ➕</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="menu-card" data-id="4" data-name="You're My Lobster Thick Shake & Dessert" data-price="Forever Love">
+            <div class="menu-icon">🥤</div>
+            <div class="menu-details">
+              <h3 class="menu-item-name">You're My Lobster Thick Shake & Dessert</h3>
+              <p class="menu-item-desc">Strawberry cream milkshake topped with whipped cream, chocolate sprinkles & heart cookies.</p>
+              <div class="menu-price-row">
+                <span class="menu-price">PRICE: 🦞 Hold My Hand</span>
+                <button class="btn-add-item">ADD TO DATE ➕</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Date Order Summary Box -->
+        <div class="date-summary-box">
+          <h3>🍽️ OUR ROMANTIC CHICKEN DATE BASKET:</h3>
+          <ul id="dateItemsList" class="date-items-list">
+            <li class="empty-msg">No items added yet. Click 'ADD TO DATE' on your favorite dishes!</li>
+          </ul>
+          <div class="summary-actions">
+            <button id="btnGenerateTicket" class="btn-primary-glow" disabled>
+              🎫 CONFIRM & GENERATE OUR DATE PASS ❤️
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final Forgiveness Victory Section -->
+      <div class="victory-section">
+        <div class="victory-box">
+          <img src="./assets/chicken_dinner.png" alt="Winner Winner Chicken Dinner Trophy" class="victory-trophy-img">
+          
+          <h2 class="victory-title">WINNER WINNER ROMANTIC DINNER! 🍗🏆</h2>
+          <p class="victory-desc">
+            "Dhana, you are the most special, handsome, and amazing squad leader in the whole world. Will you forgive your favorite teammate and claim this dinner date with me?"
+          </p>
+
+          <div class="victory-buttons">
+            <button id="btnForgiveYes" class="btn-victory-yes">
+              YES, I FORGIVE YOU MY LOVE! ❤️
+            </button>
+            <button id="btnForgiveNo" class="btn-victory-no">
+              NO 😜
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="page-footer-nav">
+        <button class="btn-prev-page" data-prev="page-friends">
+          ⬅️ Back to Page 2: Central Perk FRIENDS
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- MODALS & POPUPS                            -->
+  <!-- ========================================== -->
+
+  <!-- Airdrop Loot Modal -->
+  <div id="airdropModal" class="modal-overlay">
+    <div class="modal-content modal-airdrop">
+      <button class="modal-close" id="closeAirdropModal">&times;</button>
+      <div class="modal-header">
+        <span class="modal-badge">LEVEL 3 AIRDROP LOOT UNLOCKED!</span>
+        <h2>🎁 SUPPLIES FOR DHANA</h2>
+      </div>
+      
+      <div class="loot-grid">
+        <div class="loot-item">
+          <div class="loot-icon">🛡️</div>
+          <div class="loot-info">
+            <h4>Level 3 Helmet of Love</h4>
+            <p>Protects our relationship from all silly fights & misunderstandings forever!</p>
+          </div>
+        </div>
+        <div class="loot-item">
+          <div class="loot-icon">💉</div>
+          <div class="loot-info">
+            <h4>Medkit of 1000 Warm Hugs</h4>
+            <p>Instantly restores 100% mood whenever you feel tired or stressed.</p>
+          </div>
+        </div>
+        <div class="loot-item">
+          <div class="loot-icon">🔭</div>
+          <div class="loot-info">
+            <h4>8x Scope of Appreciation</h4>
+            <p>Helps me see clearly how lucky I am to have you as my squad leader in life.</p>
+          </div>
+        </div>
+        <div class="loot-item highlight">
+          <div class="loot-icon">🎫</div>
+          <div class="loot-info">
+            <h4>GOLDEN COUPON: 1 Night Disturbance-Free Gaming Pass</h4>
+            <p>Valid for 1 full night of gaming with your squad with zero interruption & snacks served by me!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-modal-primary" id="claimAirdropBtn">EQUIP ALL LOOT & THANK TEAMMATE 💕</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Romantic Date Ticket Pass Modal -->
+  <div id="ticketModal" class="modal-overlay">
+    <div class="modal-content modal-ticket">
+      <button class="modal-close" id="closeTicketModal">&times;</button>
+      
+      <div class="ticket-card" id="ticketCardToPrint">
+        <div class="ticket-header">
+          <span class="ticket-logo">🍗 WINNER WINNER DINNER PASS 🍷</span>
+          <span class="ticket-no">PASS #DHANA-LOVE-001</span>
+        </div>
+        
+        <div class="ticket-body">
+          <div class="ticket-field">
+            <span class="label">HOST:</span>
+            <span class="val">Tanushree 👧</span>
+          </div>
+          <div class="ticket-field">
+            <span class="label">VIP GUEST:</span>
+            <span class="val">Dhana (Squad Leader & Husband Material) 👑</span>
+          </div>
+          <div class="ticket-field">
+            <span class="label">LOCATION:</span>
+            <span class="val">Our Favorite Chicken Restaurant & Cozy Sofa 🛋️</span>
+          </div>
+          <div class="ticket-field">
+            <span class="label">SPECIAL MENU ORDER:</span>
+            <ul id="ticketOrderedItems" class="ticket-menu-list"></ul>
+          </div>
+          <div class="ticket-field">
+            <span class="label">TERMS & CONDITIONS:</span>
+            <span class="val">Must include 100+ kisses, 0% arguments, and holding hands all evening.</span>
+          </div>
+        </div>
+
+        <div class="ticket-footer">
+          <div class="stamp-approved">STAMPED WITH LOVE ❤️</div>
+          <span class="ticket-barcode">||| | |||| ||| ||||| ||| |||</span>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-modal-primary" onclick="window.print()">🖨️ SAVE / PRINT DATE PASS</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Victory Celebration Screen Modal -->
+  <div id="victoryModal" class="modal-overlay">
+    <div class="modal-content modal-victory">
+      <div class="victory-banner-animation">🏆 SQUAD VICTORY! 🏆</div>
+      <h2>YOU FORGAVE ME! THANK YOU MY HERO! 💕</h2>
+      <p>
+        "Dhana, you are the best thing that ever happened to me. I love you more than words, PUBG wins, and all the chicken in the world combined! Let's go eat delicious chicken and have the best date night!"
+      </p>
+      <div class="victory-lobster-tag">YOU ARE MY LOBSTER FOREVER 🦞❤️</div>
+      <div class="modal-footer">
+        <button class="btn-modal-primary" id="btnVictoryClose">CLOSE & CELEBRATE WITH A HUG 🤗</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
